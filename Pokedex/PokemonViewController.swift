@@ -7,7 +7,10 @@ class PokemonViewController: UIViewController {
     @IBOutlet var numberLabel: UILabel!
     @IBOutlet var type1Label: UILabel!
     @IBOutlet var type2Label: UILabel!
-
+    @IBOutlet var catchButton: UIButton!
+    
+    var caught = false
+    
     func capitalize(text: String) -> String {
         return text.prefix(1).uppercased() + text.dropFirst()
     }
@@ -50,5 +53,15 @@ class PokemonViewController: UIViewController {
                 print(error)
             }
         }.resume()
+    }
+    
+    @IBAction func toggleCatch(_ sender: UIButton) {        
+        
+        caught = !caught
+        if caught {
+            sender.setTitle("Release", for: .normal)
+        } else {
+            sender.setTitle("Catch", for: .normal)
+        }
     }
 }

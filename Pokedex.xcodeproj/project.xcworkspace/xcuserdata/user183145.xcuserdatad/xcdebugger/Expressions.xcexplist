@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "PokemonListViewController.searchBar(_:textDidChange:):PokemonListViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "filteredPokemon">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

@@ -1,7 +1,10 @@
 import UIKit
 
 class PokemonViewController: UIViewController {
+    
     var url: String!
+    
+    
 
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var numberLabel: UILabel!
@@ -9,7 +12,9 @@ class PokemonViewController: UIViewController {
     @IBOutlet var type2Label: UILabel!
     @IBOutlet var catchButton: UIButton!
     
-    var caught = false
+    var isCaught = false
+    let defaults = UserDefaults.standard
+    
     
     func capitalize(text: String) -> String {
         return text.prefix(1).uppercased() + text.dropFirst()
@@ -24,6 +29,12 @@ class PokemonViewController: UIViewController {
         type2Label.text = ""
 
         loadPokemon()
+        isCaught = getPreferences()
+        if isCaught {
+            catchButton.setTitle("Release", for: .normal)
+        } else {
+            catchButton.setTitle("Catch", for: .normal)
+        }
     }
 
     func loadPokemon() {
@@ -55,13 +66,25 @@ class PokemonViewController: UIViewController {
         }.resume()
     }
     
-    @IBAction func toggleCatch(_ sender: UIButton) {        
+    @IBAction func toggleCatch(_ sender: UIButton) {
         
-        caught = !caught
-        if caught {
+        isCaught = !isCaught
+        if isCaught {
             sender.setTitle("Release", for: .normal)
+            //isCaught = true
         } else {
             sender.setTitle("Catch", for: .normal)
+            //isCaught = false
         }
+        
+        savePreferences()
+    }
+    
+    func savePreferences() {
+        defaults.set(isCaught, forKey: "isCaught")
+    }
+    
+    func getPreferences() -> Bool {
+        return defaults.bool(forKey: "isCaught")
     }
 }

@@ -3,10 +3,29 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "PokemonViewController.viewWillAppear(_:):PokemonViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "isCaught">
+            </PersistentString>
+            <PersistentString
+               value = "getPreferences()">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "PokemonListViewController.searchBar(_:textDidChange:):PokemonListViewController.swift">
          <PersistentStrings>
             <PersistentString
                value = "filteredPokemon">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PokemonViewController.toggleCatch(_:):PokemonViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "isCaught">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

@@ -11,6 +11,7 @@ class PokemonViewController: UIViewController {
     @IBOutlet var type1Label: UILabel!
     @IBOutlet var type2Label: UILabel!
     @IBOutlet var catchButton: UIButton!
+    @IBOutlet var spriteImage: UIImageView!
     
     var isCaught = false
     let defaults = UserDefaults.standard
@@ -27,7 +28,7 @@ class PokemonViewController: UIViewController {
         numberLabel.text = ""
         type1Label.text = ""
         type2Label.text = ""
-
+        
         loadPokemon()
         isCaught = getPreferences()
         if isCaught {
@@ -58,6 +59,11 @@ class PokemonViewController: UIViewController {
                             self.type2Label.text = typeEntry.type.name
                         }
                     }
+                    let imageURL = URL(string: result.sprites.front_default)
+                    let imageData = try! Data(contentsOf: imageURL!)
+                    self.spriteImage.image = UIImage(data: imageData)
+                
+                    
                 }
             }
             catch let error {
